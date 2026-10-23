@@ -4,7 +4,7 @@
 
 int main(){
 
-    printf("to be implemented");
+    printf("to be implemented: %d\n", temp());
 
     return 0;
 }
