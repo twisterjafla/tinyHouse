@@ -5,7 +5,7 @@ IDIR =../include
 CC=gcc
 CFLAGS=-I$(IDIR)
 
-ODIR=obj
+ODIR=obj/
 LDIR =../lib
 
 LIBS=-lm
@@ -20,8 +20,9 @@ _OBJ = main.o utils.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 
-$(ODIR)/%.o: %.c $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
+%.o: %.c 
+	$(CC) -c -o obj/$@ $< $(CFLAGS)
+
 
 main: main.o utils.o
 	$(CC) -o $@ $^ $(CFLAGS)
@@ -29,7 +30,12 @@ main: main.o utils.o
 main.o: utils.o
 utils.o: 
 
-.PHONY: clean
+tempTest: utils.o
+	echo hello world
+	$(CC) -o tests/$@ tests/tempTest.c obj/$^ $(CFLAGS)
+	./tests/tempTest
 
+
+.PHONY: clean
 clean:
 	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ 
