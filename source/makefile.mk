@@ -35,6 +35,12 @@ tempTest: utils.o
 	$(CC) -o tests/$@ tests/tempTest.c obj/$^ $(CFLAGS)
 	./tests/tempTest
 
+test: utils.o
+	echo hello world
+	$(CC) -o tests/$@ tests/test.c obj/$^ $(CFLAGS)
+	./tests/test
+
+
 
 .PHONY: clean
 clean:
