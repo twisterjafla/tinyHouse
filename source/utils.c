@@ -4,8 +4,11 @@
 
 char getBit(int bitID, void* chunk){
     // printf("%d : %p : %c\n", bitID, chunk, *((char*)chunk));
-    
-    return ((char*)chunk)[bitID/8] & (1<<(bitID%8));
+    //printf("%d", ((unsigned char*)chunk)[bitID/8]>>(7-bitID%8)&0x01);
+    //./printf(".%d ", ((unsigned char*)chunk)[bitID/8] & (1<<(7-bitID%8)));
+    //printf("%d", ((unsigned char*)chunk)[bitID/8]);
+    //printf("%d", bitID/8);
+    return (((unsigned char*)chunk)[bitID/8]>>(7-bitID%8)&0x01);
 }
 
 int temp(){return 10;}
@@ -14,7 +17,7 @@ char* getBitString(void* num, int sizeBytes){
     char* returnStr = malloc(sizeBytes*8+1);
     for (int bit=0; bit<sizeBytes*8; bit++){
         returnStr[bit] = getBit(bit, num) + 48;
-        printf("%d", returnStr[bit]-48);
+        printf("(%d %d) ", bit, getBit(bit, num));
 
     }
 

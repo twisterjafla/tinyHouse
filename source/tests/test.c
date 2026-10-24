@@ -9,11 +9,11 @@ int main(){
     testChar1[0]=127;
     
     unsigned int* testInt1 = malloc(sizeof(int));
-    testInt1[0] =  __INT32_MAX__;
+    testInt1[0] =  1610612735;//__INT32_MAX__;
 
-    printf("testChar1: %s\n", getBitStringChar(*(unsigned char*)testChar1));
+    //printf("testChar1: %s\n", getBitStringChar(*(unsigned char*)testChar1));
     printf("testInt1: %s\n", getBitStringInt(*(unsigned int*)testInt1));
-    printf("testChar1: %s\n", getBitString(testChar1, sizeof(unsigned char)));
+    //printf("testChar1: %s\n", getBitString(testChar1, sizeof(unsigned char)));
     printf("testInt1: %s\n", getBitString(testInt1, sizeof(unsigned int)));
     printf("%i\n", getBit(0, testInt1));
 
