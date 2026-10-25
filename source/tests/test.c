@@ -16,6 +16,7 @@ int main(){
     //printf("testChar1: %s\n", getBitString(testChar1, sizeof(unsigned char)));
     printf("testInt1: %s\n", getBitString(testInt1, sizeof(unsigned int)));
     printf("%i\n", getBit(0, testInt1));
+    //printf("%d\n", *testInt1);
 
     if (getBit(0, testChar1)==0){printf("test 1 failed\n");} else {printf("test 1 passed\n");}
     if (getBit(2, testChar1)==0){printf("test 2 failed\n");} else {printf("test 2 passed\n");}
